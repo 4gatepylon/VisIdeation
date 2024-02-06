@@ -53,7 +53,7 @@ class Format(Enum):
 @click.command()
 @click.argument('input_file', type=str, required=True)
 @click.option('--save-to', default=None, help='Save to file')
-@click.option('--format', default=Format.JSON, help=f'Format to save to; must be one of {[x.value for x in Format]}')
+@click.option('--format', default='json', help=f'Format to save to; must be one of {[x.value for x in Format]}')
 @click.option('--skip-subsequent-count', default=1, help='Skip subsequent rows by this count after the first row. Your first row must always be labels and these rows might be informational.')
 @click.option("--disable-strict-name", is_flag=True, help="Disable strict name checking, if you toggle this then you may have ideas without names so long as they have a desc.")
 def main(input_file: str, save_to: Optional[str], format: Union[Format, str], skip_subsequent_count: int, disable_strict_name: bool = False) -> None:
